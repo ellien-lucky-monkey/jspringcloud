@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: server-register
+eureka:
+  server:
+    enable-self-preservation: true # 关闭保护机制
+security:
+  basic:
+    enabled: true
+  user:
+    name: ellien
+    password: jiangkui1991
+
+
+---
+spring:
+  profiles: peer1                                 # 指定profile=peer1
+server:
+  port: 1111
+eureka:
+  instance:
+    hostname: peer1                               # 指定当profile=peer1时，主机名
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://ellien:jiangkui1991@peer2:1112/eureka/     # 将自己注册到peer2这个Eureka上面去
+
+---
+spring:
+  profiles: peer2
+server:
+  port: 1112
+eureka:
+  instance:
+    hostname: peer2
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://ellien:jiangkui1991@peer1:1111/eureka/
