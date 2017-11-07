@@ -1,5 +1,6 @@
 # springcloud 微服务实战 
-> 
+> springcloud官方文档 http://projects.spring.io/spring-cloud/
+
 1. 基于springBoot构建各种微服务项目 
 2. 基于Eureka实现注册中心的高可用
 3. 基于Ribbon实现客户端负载均衡
@@ -8,7 +9,7 @@
 6. 基于Zuul实现API网关
 7. 基于Config实现分布式配置
 ***
-###项目分布
+### 项目分布
 
 * common    基础服务模块     
 * user      用户服务模块      
@@ -28,7 +29,9 @@
 ## Feign实现声明式服务调用
 
 ## Zuul实现API网关
-** ignored-services: '*' 这里表示忽略自动为微服务创建路由 **
+ignored-services: "*" **这里表示忽略自动为微服务创建路由**
+
+*****
 使用yml的配置方式 其中user-route是随便取的对应你所定义的微服务
 
 zuul:
