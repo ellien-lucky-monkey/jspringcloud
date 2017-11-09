@@ -45,13 +45,23 @@ zuul:
         routes:
           user-route: 
            path: /user/** 
-           service-id: provide-user
+           service-id: user-service
       ribbon: 
         eureka: 
           enabled: false  # 为Ribbon禁用Eureka
       user-service: # 这边是serviceId
         ribbon: 
           listOfServers: http://localhost:8081,http://localhost:8082
+另外yml的配置方式可以保证路由规则的有序性，而properties文件无法保证顺序
+    例如: 先匹配 user-route 后匹配 common-route 就可以这么写
+     zuul:
+            routes:
+              user-route: 
+               path: /user/** 
+               service-id: user-service
+              common-route:
+                path: /com/** 
+                service-id: common-service
 ***
 ## Config实现分布式配置
 

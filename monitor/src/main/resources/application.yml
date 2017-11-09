@@ -1,0 +1,14 @@
+logging:
+  level: debug
+spring:
+  application:
+    name: monitor
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://ellien:jiangkui1991@peer1:1111/eureka/,http://ellien:jiangkui1991@peer2:1112/eureka
+  instance:
+    prefer-ip-address: true
+#management:
+#  security:
+#    enabled: false
