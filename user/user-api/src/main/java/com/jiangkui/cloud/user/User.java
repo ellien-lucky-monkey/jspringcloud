@@ -1,5 +1,8 @@
 package com.jiangkui.cloud.user;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  * package:    com.jiangkui.cloud
  * className:  User
@@ -7,9 +10,12 @@ package com.jiangkui.cloud.user;
  * author      jiangkui  😛😛😛😛😛  (o>=<o)
  * description
  */
+@Entity
 public class User {
 
+	@Id
 	private Long id;
+
 	private String username;
 
 	public Long getId() {

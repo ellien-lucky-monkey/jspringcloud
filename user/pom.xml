@@ -17,4 +17,7 @@
     <packaging>pom</packaging>
     <name>springcloud :: user</name>
 
+    <dependencies>
+
+    </dependencies>
 </project>
