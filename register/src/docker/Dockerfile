@@ -5,7 +5,7 @@ FROM java:8
 VOLUME /tmp
 
 # 拷贝文件到容器，也可以直接写成ADD register-1.0-SNAPSHOT.jar /app.jar
-ADD  /target/register-1.0-SNAPSHOT.jar /opt/docker/app.jar
+ADD  ./register-1.0-SNAPSHOT.jar /opt/docker/app.jar
 RUN bash -c 'touch /app.jar'
 
 # 开放8761端口
