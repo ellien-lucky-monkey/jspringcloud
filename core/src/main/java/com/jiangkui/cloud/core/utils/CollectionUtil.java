@@ -3,9 +3,9 @@ package com.jiangkui.cloud.core.utils;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.ReflectionUtils;
+import org.springframework.util.StringUtils;
 
 import java.lang.reflect.Field;
 import java.util.*;
@@ -189,7 +189,6 @@ public class CollectionUtil {
      * @return 指定属性的Map集合
      */
     @SuppressWarnings("unchecked")
-    // TODO 【code review】from 芋艿 to 欢欢：升级下，支持属性嵌套，例如说profile.xxx.yyy
     public static <K, V> Map<K, List<V>> buildMultimap(List<V> objs, Class<K> keyClazz, Class<V> valClazz,
                                                        String property) {
         if (isEmpty(objs)) {
@@ -684,31 +683,31 @@ public class CollectionUtil {
         return returnElements;
     }
 
-    /**
-     * 创建随机Map
-     *
-     * @param keyClazz key class
-     * @param valClazz value class
-     * @return 随机Map
-     */
-    public static <K, V> Map<K, V> randomMap(Class<K> keyClazz, Class<V> valClazz) {
-        int size = MathUtil.random(10);
-        Map<K, V> result = Maps.newHashMapWithExpectedSize(size);
-        for (int i = 0; i < size; i++) {
-            try {
-                K key;
-                if (keyClazz == String.class) {
-                    key = (K) StringUtil.random();
-                } else {
-                    key = keyClazz.newInstance();
-                }
-                result.put(key, valClazz.newInstance());
-            } catch (InstantiationException | IllegalAccessException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        return result;
-    }
+//    /**
+//     * 创建随机Map
+//     *
+//     * @param keyClazz key class
+//     * @param valClazz value class
+//     * @return 随机Map
+//     */
+//    public static <K, V> Map<K, V> randomMap(Class<K> keyClazz, Class<V> valClazz) {
+//        int size = MathUtil.random(10);
+//        Map<K, V> result = Maps.newHashMapWithExpectedSize(size);
+//        for (int i = 0; i < size; i++) {
+//            try {
+//                K key;
+//                if (keyClazz == String.class) {
+//                    key = (K) StringUtil.random();
+//                } else {
+//                    key = keyClazz.newInstance();
+//                }
+//                result.put(key, valClazz.newInstance());
+//            } catch (InstantiationException | IllegalAccessException e) {
+//                throw new RuntimeException(e);
+//            }
+//        }
+//        return result;
+//    }
 
 
 
