@@ -181,7 +181,6 @@ public class StringUtil {
 
     /**
      * 过滤正则特殊符号<br />
-     * TODO: 目前仅支持()[]{}，后期可考虑过滤更多的特殊字符
      *
      * @param content
      * @return
@@ -579,7 +578,7 @@ public class StringUtil {
             if (i > 0) {
                 ip += ".";
             }
-            ip += MathUtil.random(256);
+//            ip += MathUtil.random(256);
         }
         return ip;
     }

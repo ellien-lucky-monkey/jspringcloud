@@ -3,9 +3,9 @@ package com.jiangkui.cloud.core.utils;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.ReflectionUtils;
+import org.springframework.util.StringUtils;
 
 import java.lang.reflect.Field;
 import java.util.*;
@@ -156,7 +156,6 @@ public class CollectionUtil {
      * @return 指定属性的集合
      */
     @SuppressWarnings("unchecked")
-    // TODO 【code review】from 芋艿 to 欢欢：升级下，支持属性嵌套，例如说profile.xxx.yyy
     public static <T> Set<T> buildSet(List<?> objs, Class<T> clazz, String property) {
         if (isEmpty(objs)) {
             return Sets.newHashSetWithExpectedSize(0);
@@ -189,7 +188,6 @@ public class CollectionUtil {
      * @return 指定属性的Map集合
      */
     @SuppressWarnings("unchecked")
-    // TODO 【code review】from 芋艿 to 欢欢：升级下，支持属性嵌套，例如说profile.xxx.yyy
     public static <K, V> Map<K, List<V>> buildMultimap(List<V> objs, Class<K> keyClazz, Class<V> valClazz,
                                                        String property) {
         if (isEmpty(objs)) {
@@ -222,7 +220,6 @@ public class CollectionUtil {
      * @return 指定属性的数组
      */
     @SuppressWarnings("unchecked")
-    // TODO 【code review】from 芋艿 to 欢欢：升级下，支持属性嵌套，例如说profile.xxx.yyy
     public static <T> List<T> buildList(List<?> objs, Class<T> clazz, String property) {
         if (isEmpty(objs)) {
             return Lists.newArrayListWithExpectedSize(0);
@@ -255,7 +252,6 @@ public class CollectionUtil {
      * @return 指定属性的Map集合
      */
     @SuppressWarnings("unchecked")
-    // TODO 【code review】from 芋艿 to 欢欢：升级下，支持属性嵌套，例如说profile.xxx.yyy
     public static <K, V> Map<K, V> buildMap(List<V> objs, Class<K> keyClazz, Class<V> valClazz,
                                             String property) {
         if (isEmpty(objs)) {
@@ -284,7 +280,6 @@ public class CollectionUtil {
      * @return 次数集合
      */
     @SuppressWarnings("unchecked")
-    // TODO 【code review】from 芋艿 to 欢欢：升级下，支持属性嵌套，例如说profile.xxx.yyy
     public static <K> Map<K, Integer> buildCountMap(List<?> objs, Class<K> keyClazz, String property) {
         if (isEmpty(objs)) {
             return Maps.newHashMapWithExpectedSize(0);
@@ -315,7 +310,6 @@ public class CollectionUtil {
      * @return 次数集合
      */
     @SuppressWarnings("unchecked")
-    // TODO 【code review】from 芋艿 to 欢欢：升级下，支持属性嵌套，例如说profile.xxx.yyy
     public static <K> Map<K, Integer> buildCountMap(List<?> objs, Class<K> keyClazz, String property, String valProperty) {
         if (isEmpty(objs)) {
             return Collections.emptyMap();
@@ -494,7 +488,6 @@ public class CollectionUtil {
                                       List<?> targetList,
                                       Map.Entry<String, String> joinEntry,
                                       String sourceField, List<String> targetFields) {
-        // TODO 这样写, 会导致重复format. 但是传进来是多个的场景比较少, 因此, 暂时不优化.
         for (String targetField : targetFields) {
             Map<String, String> mapping = Maps.newHashMapWithExpectedSize(1);
             mapping.put(sourceField, targetField);
@@ -543,7 +536,6 @@ public class CollectionUtil {
                                       List<?> targetList,
                                       Map.Entry<String, String> joinEntry,
                                       List<String> fields) {
-        // TODO 这样写, 会导致重复format. 但是传进来是多个的场景比较少, 因此, 暂时不优化.
         for (String field : fields) {
             copyProperties(sourceList, targetList, joinEntry, field);
         }
@@ -577,7 +569,6 @@ public class CollectionUtil {
             String joinEntryKey = joinEntry.getKey();
             sourceMap = Maps.newHashMapWithExpectedSize(sourceList.size());
             Field joinEntryField = getField(sourceList, joinEntryKey);
-            // TODO 芋艿: 未来增加一个场景, Map<?, List<?>>
             for (Object source : sourceList) {
                 sourceMap.put(joinEntryField.get(source), source);
             }
@@ -684,31 +675,31 @@ public class CollectionUtil {
         return returnElements;
     }
 
-    /**
-     * 创建随机Map
-     *
-     * @param keyClazz key class
-     * @param valClazz value class
-     * @return 随机Map
-     */
-    public static <K, V> Map<K, V> randomMap(Class<K> keyClazz, Class<V> valClazz) {
-        int size = MathUtil.random(10);
-        Map<K, V> result = Maps.newHashMapWithExpectedSize(size);
-        for (int i = 0; i < size; i++) {
-            try {
-                K key;
-                if (keyClazz == String.class) {
-                    key = (K) StringUtil.random();
-                } else {
-                    key = keyClazz.newInstance();
-                }
-                result.put(key, valClazz.newInstance());
-            } catch (InstantiationException | IllegalAccessException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        return result;
-    }
+//    /**
+//     * 创建随机Map
+//     *
+//     * @param keyClazz key class
+//     * @param valClazz value class
+//     * @return 随机Map
+//     */
+//    public static <K, V> Map<K, V> randomMap(Class<K> keyClazz, Class<V> valClazz) {
+//        int size = MathUtil.random(10);
+//        Map<K, V> result = Maps.newHashMapWithExpectedSize(size);
+//        for (int i = 0; i < size; i++) {
+//            try {
+//                K key;
+//                if (keyClazz == String.class) {
+//                    key = (K) StringUtil.random();
+//                } else {
+//                    key = keyClazz.newInstance();
+//                }
+//                result.put(key, valClazz.newInstance());
+//            } catch (InstantiationException | IllegalAccessException e) {
+//                throw new RuntimeException(e);
+//            }
+//        }
+//        return result;
+//    }
 
 
 
