@@ -6,6 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.cloud.client.SpringCloudApplication;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
+import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -21,6 +22,7 @@ import org.springframework.web.client.RestTemplate;
  */
 @SpringCloudApplication//该注解所包含的相关注解有{@EnableDiscoveryClient@EnableCircuitBreaker@SpringBootApplication@SpringBootApplication}
 @EnableFeignClients
+@EnableHystrix
 //@RibbonClient(name = "user-service", configuration = RibbonConfiguration.class)
 @ComponentScan(excludeFilters = {@ComponentScan.Filter(type = FilterType.ANNOTATION, value = ExcludeComponentScan.class)})
 public class StartCommon {

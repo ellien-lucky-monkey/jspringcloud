@@ -8,6 +8,9 @@ spring:
     show-sql: true
     hibernate:
           ddl-auto: none #使用自建表
+  boot:
+      admin:
+        url: http://localhost:8082
 eureka:
   client:
     serviceUrl:

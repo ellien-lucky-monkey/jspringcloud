@@ -17,7 +17,12 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-eureka</artifactId>
         </dependency>
-
+        <!--admin-->
+        <dependency>
+            <groupId>de.codecentric</groupId>
+            <artifactId>spring-boot-admin-starter-client</artifactId>
+            <version>1.4.6</version>
+        </dependency>
         <!-- 整合ribbon -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
