@@ -1064,7 +1064,7 @@ public class DateUtil {
 	 * @return
 	 */
 	public static String convertAvg(Date birthday) {
-		Long dayLong = (new Date().getTime() - birthday.getTime()) / DAY_LONG;
+		Long dayLong = (System.currentTimeMillis() - birthday.getTime()) / DAY_LONG;
 		String avgStr = "";
 		Long month = dayLong / 30;
 		avgStr = (dayLong % 30 == 0 ? 1: dayLong % 30) + "天";

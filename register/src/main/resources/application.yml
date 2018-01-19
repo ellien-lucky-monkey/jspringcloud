@@ -6,7 +6,7 @@ eureka:
     enable-self-preservation: true # 关闭保护机制
 security:
   basic:
-    enabled: true
+    enabled: false
   user:
     name: ellien
     password: jiangkui1991
@@ -21,10 +21,10 @@ eureka:
   instance:
     hostname: peer1                               # 指定当profile=peer1时，主机名
   client:
-    register-with-eureka: true
-    fetch-registry: true
+    register-with-eureka: false
+    fetch-registry: false
     serviceUrl:
-      defaultZone: http://ellien:jiangkui1991@peer2:1112/eureka/     # 将自己注册到peer2这个Eureka上面去
+      defaultZone: http://ellien:jiangkui1991@peer1:1111/eureka/     # 将自己注册到peer2这个Eureka上面去
 
 ---
 spring:
@@ -35,7 +35,7 @@ eureka:
   instance:
     hostname: peer2
   client:
-    register-with-eureka: true
-    fetch-registry: true
+    register-with-eureka: false
+    fetch-registry: false
     serviceUrl:
-      defaultZone: http://ellien:jiangkui1991@peer1:1111/eureka/
+      defaultZone: http://ellien:jiangkui1991@peer2:1112/eureka/

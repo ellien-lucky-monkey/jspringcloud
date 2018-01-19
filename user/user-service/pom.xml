@@ -72,6 +72,12 @@
             <artifactId>druid</artifactId>
             <version>1.0.12</version>
         </dependency>
+
+        <dependency>
+            <groupId>de.codecentric</groupId>
+            <artifactId>spring-boot-admin-starter-client</artifactId>
+            <version>1.4.6</version>
+        </dependency>
     </dependencies>
 
     <build>

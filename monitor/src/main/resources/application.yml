@@ -1,5 +1,5 @@
 server:
-  port: 8090
+  port: 8082
 logging:
   level: debug
 spring:
@@ -7,7 +7,23 @@ spring:
     name: monitor
   boot:
     admin:
-      url: http://localhost:${server.port}
-endpoints:
-  health:
-    sensitive: false
+      routes:
+        endpoints: env,metrics,dump,jolokia,info,configprops,trace,logfile,refresh,flyway,liquibase,heapdump,loggers,auditevents,hystrix.stream
+#      url: http://localhost:${server.port}
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 2      #心跳
+    lease-expiration-duration-in-seconds: 6  #服务失效时间
+#endpoints:
+#  health:
+#    sensitive: false
+management:
+  security:
+    enabled: false
+info:
+  version: @project.version@
+
