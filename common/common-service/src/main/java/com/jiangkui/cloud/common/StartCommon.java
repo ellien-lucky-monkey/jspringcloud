@@ -3,6 +3,7 @@ package com.jiangkui.cloud.common;
 import com.jiangkui.cloud.core.annotation.ExcludeComponentScan;
 import com.jiangkui.cloud.core.utils.BeanManager;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.cloud.client.SpringCloudApplication;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
@@ -12,6 +13,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 /**
  * package:    com.jiangkui.cloud
@@ -25,6 +27,7 @@ import org.springframework.web.client.RestTemplate;
 @EnableHystrix
 //@RibbonClient(name = "user-service", configuration = RibbonConfiguration.class)
 @ComponentScan(excludeFilters = {@ComponentScan.Filter(type = FilterType.ANNOTATION, value = ExcludeComponentScan.class)})
+@ServletComponentScan
 public class StartCommon {
 	@Bean
 	@LoadBalanced

@@ -1,0 +1,26 @@
+logging:
+  level: debug
+spring:
+  application:
+    name: turbine
+  boot:
+    admin:
+      url: http://localhost:8082
+eureka:
+  client:
+    serviceUrl:
+        defaultZone: http://ellien:jiangkui1991@peer1:1111/eureka/
+#        ,http://ellien:jiangkui1991@peer2:1112/eureka
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 2      #心跳
+    lease-expiration-duration-in-seconds: 6
+ #服务失效时间
+    #instance-id: ${spring.application.name}:${random.int} #随机实例名
+#server:
+  #port: ${random.int[8090,8200]} #随机端口
+
+turbine:
+  app-config: common-service
+  cluster-name-expression: new String('default')
+  combine-host-port: true

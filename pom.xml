@@ -19,6 +19,7 @@
         <module>hystrix-dashboard</module>
         <module>consul</module>
         <module>config-client</module>
+        <module>turbine</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -26,7 +27,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.2.RELEASE</version>
+        <version>1.5.4.RELEASE</version>
     </parent>
 
     <properties>
@@ -40,14 +41,14 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Brixton.SR5</version>
+                <version>Dalston.SR1</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-test</artifactId>
-                <version>1.4.0.RELEASE</version>
+                <version>1.5.4.RELEASE</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

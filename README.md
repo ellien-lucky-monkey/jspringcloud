@@ -7,7 +7,8 @@
 4. 基于Hystrix实现服务容错保护
 5. 基于Feign实现声明式服务调用
 6. 基于Zuul实现API网关
-7. 基于Config实现分布式配置
+7. 基于Config实现分布式配置中心
+8. 整合spring boot admin项目实现服务监控
 ***
 ### 项目分布
 
@@ -18,6 +19,7 @@
 * gateway   API网关      
 * core      工具类，数据初始化      
 * mq        分布式消息  
+* monitor   监控  
        
 ***
 ## Eureka实现高可用注册中心
@@ -64,5 +66,7 @@ zuul:
                 service-id: common-service
 ***
 ## Config实现分布式配置
+
+### issues spring cloud和spring boot版本的问题有待解决
 
 

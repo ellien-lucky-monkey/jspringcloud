@@ -6,5 +6,16 @@ spring:
       server:
         git:
           uri: https://github.com/ellien-lucky-monkey/config.git
+
+eureka:
+  client:
+    serviceUrl:
+        defaultZone: http://ellien:jiangkui1991@peer1:1111/eureka/
+#        ,http://ellien:jiangkui1991@peer2:1112/eureka
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 2      #心跳
+    lease-expiration-duration-in-seconds: 6  #服务失效时间
+
 server:
   port: 8086

@@ -1,4 +1,4 @@
-package com.jiangkui.cloud;
+package com.jiangkui.cloud.consul;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
