@@ -1,17 +1,11 @@
-
+logging:
+  level: debug
 spring:
   application:
-    name: config-client
-  cloud:
-    config:
-      uri: http://localhost:8086/
-      profile: dev
-      label: master
-  rabbitmq:
-    host: localhost
-    port: 5672
-    username: guest
-    password: guest
+    name: zipkin-server
+  boot:
+    admin:
+      url: http://localhost:8082
 eureka:
   client:
     serviceUrl:
@@ -21,6 +15,7 @@ eureka:
     prefer-ip-address: true
     lease-renewal-interval-in-seconds: 2      #心跳
     lease-expiration-duration-in-seconds: 6  #服务失效时间
-
+    #instance-id: ${spring.application.name}:${random.int} #随机实例名
 server:
-  port: 8087
+  port: 9411
+

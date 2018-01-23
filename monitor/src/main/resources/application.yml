@@ -25,5 +25,5 @@ management:
   security:
     enabled: false
 info:
-  version: @project.version@
+  version: ${project.version}
 
