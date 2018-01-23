@@ -20,6 +20,7 @@
 * core      工具类，数据初始化      
 * mq        分布式消息  
 * monitor   监控  
+* turbine   集群监控  
        
 ***
 ## Eureka实现高可用注册中心

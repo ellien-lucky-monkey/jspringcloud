@@ -5,7 +5,8 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/ellien-lucky-monkey/config.git
+          uri: https://github.com/ellien-lucky-monkey/jspringcloud.git/
+          search-paths: config-repo
 
 eureka:
   client:
