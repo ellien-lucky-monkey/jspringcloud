@@ -1,5 +1,6 @@
 server:
   port: 8082
+
 logging:
   level: debug
 spring:
@@ -13,7 +14,7 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:1111/eureka/
+      defaultZone: http://ellien:123456@peer1:1111/eureka/
   instance:
     prefer-ip-address: true
     lease-renewal-interval-in-seconds: 2      #心跳

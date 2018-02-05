@@ -1,0 +1,10 @@
+server:
+  port: 8091
+logging:
+  level: debug
+spring:
+  application:
+    name: demo
+  boot:
+    admin:
+      url: http://localhost:8082

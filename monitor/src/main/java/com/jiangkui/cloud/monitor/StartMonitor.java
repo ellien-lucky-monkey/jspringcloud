@@ -14,7 +14,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  */
 
 @SpringBootApplication
-@EnableDiscoveryClient
+//@EnableDiscoveryClient
 @EnableAdminServer
 public class StartMonitor {
 	public static void main(String[] args) {
