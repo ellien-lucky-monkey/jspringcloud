@@ -1,4 +1,6 @@
 # springcloud 微服务实战 
+Spring Cloud是一个基于Spring Boot实现的云应用开发工具，它为基于JVM的云应用开发中的配置管理、服务发现、断路器、智能路由、微代理、控制总线、全局锁、决策竞选、分布式会话和集群状态管理等操作提供了一种简单的开发方式。
+
 > springcloud官方文档 http://projects.spring.io/spring-cloud/
 
 1. 基于springBoot构建各种微服务项目 
